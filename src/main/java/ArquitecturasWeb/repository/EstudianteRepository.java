@@ -12,7 +12,8 @@ import java.util.List;
 public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
 
 
-    List<EstudianteDTO> findAllByOrderByApellidoAsc();
+    @Query("SELECT e FROM Estudiante e ORDER BY e.apellido ASC")
+    List<EstudianteDTO> getAllEstudiantesOrderByApellidoAsc();
 
     @Query("SELECT e FROM estudiante WHERE e.id = :id ") //TODO chequear
     EstudianteDTO getEstudianteById(int id);

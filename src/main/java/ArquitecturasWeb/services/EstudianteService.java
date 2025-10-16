@@ -24,10 +24,10 @@ public class EstudianteService {
     }
 
     public List<EstudianteDTO> findAllByOrderByApellidoAsc(){
-        return estudianteRepository.findAllByOrderByApellidoAsc();
+        return estudianteRepository.getAllEstudiantesOrderByApellidoAsc();
     }
 
-    public EstudianteDTO getEstudianteId(int id){
+    public EstudianteDTO getEstudiantenId(int id){
         return estudianteRepository.getEstudianteById(id);
     }
 
