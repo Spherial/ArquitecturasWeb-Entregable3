@@ -23,7 +23,7 @@ public class EstudianteService {
         estudianteRepository.save(estudiante);
     }
 
-    public List<EstudianteDTO> findAllByOrderByApellidoAsc(){
+    public List<EstudianteDTO> getAllByOrderByApellidoAsc(){
         return estudianteRepository.getAllEstudiantesOrderByApellidoAsc();
     }
 

@@ -12,7 +12,7 @@ import java.util.List;
 public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
 
 
-    @Query("SELECT e FROM Estudiante e ORDER BY e.apellido ASC")
+    @Query("SELECT e FROM Estudiante e ORDER BY e.apellido ASC")//TODO DSP CHEKEAMOS EL DTO QUE DEVOLVEMOS O LA CONSULTA
     List<EstudianteDTO> getAllEstudiantesOrderByApellidoAsc();
 
     @Query("SELECT e FROM estudiante WHERE e.id = :id ") //TODO chequear
