@@ -23,13 +23,18 @@ public class EstudianteService {
         estudianteRepository.save(estudiante);
     }
 
+    @Transactional
     public List<EstudianteDTO> getAllByOrderByApellidoAsc(){
         return estudianteRepository.getAllEstudiantesOrderByApellidoAsc();
     }
 
-    public EstudianteDTO getEstudiantenId(int id){
-        return estudianteRepository.getEstudianteById(id);
+    @Transactional
+    public EstudianteDTO getEstudiantePorLU(int LU){
+        return estudianteRepository.getEstudianteByLU(LU);
     }
+
+    @Transactional
+    public List<EstudianteDTO> getEstudiantePorGenero(String genero){return estudianteRepository.getEstudiantesByGenero(genero);}
 
 
 

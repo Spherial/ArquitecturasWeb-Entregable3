@@ -3,8 +3,10 @@ package ArquitecturasWeb.controller;
 import ArquitecturasWeb.dto.EstudianteDTO;
 import ArquitecturasWeb.entities.Estudiante;
 import ArquitecturasWeb.services.EstudianteService;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,14 +25,21 @@ public class EstudianteController {
         return estudianteService.getAllByOrderByApellidoAsc();
     }
 
-    @GetMapping("/id")
-    public EstudianteDTO getEstudianteId(@RequestParam int id){
-        return estudianteService.getEstudiantenId(id);
-
+    @JsonIgnoreProperties // ignora los campos que esten mal
+    @GetMapping("/LU")
+    public EstudianteDTO getEstudianteLU(@RequestParam @Validated int LU){
+        return estudianteService.getEstudiantePorLU(LU);
     }
 
+    @JsonIgnoreProperties
+    @GetMapping("/genero")
+    public Iterable<EstudianteDTO> getEstudiantesByGenero(@RequestParam @Validated String genero){
+        return estudianteService.getEstudiantePorGenero(genero);
+    }
+
+    @JsonIgnoreProperties
     @PostMapping("/agregar")
-    public void insertEstudiante(@RequestBody Estudiante nuevoEstudiante){//TODO: no deberian ser dtos?
+    public void insertEstudiante(@RequestBody @Validated Estudiante nuevoEstudiante){//TODO: no deberian ser dtos?
         estudianteService.insertEstudiante(nuevoEstudiante);
     }
 
