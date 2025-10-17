@@ -44,6 +44,12 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties
+    @GetMapping("/byIdCarrera")
+    public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(@RequestParam @Validated int id){
+        return estudianteService.getEstudiantesPorIdCarrera(id);
+    }
+
+    @JsonIgnoreProperties
     @PostMapping("/agregar")
     public void insertEstudiante(@RequestBody @Validated Estudiante nuevoEstudiante){//TODO: no deberian ser dtos?
         estudianteService.insertEstudiante(nuevoEstudiante);

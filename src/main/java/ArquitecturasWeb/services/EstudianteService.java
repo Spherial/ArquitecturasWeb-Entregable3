@@ -41,6 +41,11 @@ public class EstudianteService {
         return estudianteRepository.buscarEstudiantesPorCampos(nombre, apellido, edad, genero, ciudad,LU);
     }
 
+    @Transactional
+    public List<EstudianteDTO> getEstudiantesPorIdCarrera(int id){
+        return estudianteRepository.getEstudiantesPorIdCarrera(id);
+    }
+
 
 
 
