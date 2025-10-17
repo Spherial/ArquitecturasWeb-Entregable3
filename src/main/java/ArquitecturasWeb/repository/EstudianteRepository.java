@@ -20,4 +20,27 @@ public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
 
     @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.dni, e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e WHERE e.genero = :genero")
     List<EstudianteDTO> getEstudiantesByGenero(@Param("genero") String genero);
+
+    @Query("""
+    SELECT new ArquitecturasWeb.dto.EstudianteDTO(
+        e.dni, e.nombre, e.apellido, e.edad, e.genero, e.ciudad, e.LU
+    )
+    FROM Estudiante e
+    WHERE (:nombre IS NULL OR e.nombre LIKE %:nombre%)
+      AND (:apellido IS NULL OR e.apellido LIKE %:apellido%)
+      AND (:edad IS NULL OR e.edad = :edad)
+      AND (:genero IS NULL OR e.genero LIKE %:genero%)
+      AND (:ciudad IS NULL OR e.ciudad LIKE %:ciudad%)
+      AND (:LU IS NULL OR e.LU = :LU)
+    ORDER BY e.apellido ASC
+""")
+    List<EstudianteDTO> buscarEstudiantesPorCampos(
+            @Param("nombre") String nombre,
+            @Param("apellido") String apellido,
+            @Param("edad") Integer edad,
+            @Param("genero") String genero,
+            @Param("ciudad") String ciudad,
+            @Param("LU") Integer LU
+    );
+
 }

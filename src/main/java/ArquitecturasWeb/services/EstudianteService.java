@@ -36,6 +36,11 @@ public class EstudianteService {
     @Transactional
     public List<EstudianteDTO> getEstudiantePorGenero(String genero){return estudianteRepository.getEstudiantesByGenero(genero);}
 
+    @Transactional
+    public List<EstudianteDTO> buscarEstudiantesPorCampos(String nombre,String apellido,int edad, String genero,String ciudad, int LU){
+        return estudianteRepository.buscarEstudiantesPorCampos(nombre, apellido, edad, genero, ciudad,LU);
+    }
+
 
 
 
