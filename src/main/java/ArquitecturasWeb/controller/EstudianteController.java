@@ -12,11 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/estudiante")
 @RequiredArgsConstructor
 public class EstudianteController {
 
-    @Autowired
     private final EstudianteService estudianteService;
 
 
@@ -26,14 +24,14 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties // ignora los campos que esten mal
-    @GetMapping("/LU")
-    public EstudianteDTO getEstudianteLU(@RequestParam @Validated int LU){
-        return estudianteService.getEstudiantePorLU(LU);
+    @GetMapping("/estudiantes/{lu}")
+    public EstudianteDTO getEstudianteLU(@PathVariable int lu){
+        return estudianteService.getEstudiantePorLU(lu);
     }
 
     @JsonIgnoreProperties
-    @GetMapping("/genero")
-    public Iterable<EstudianteDTO> getEstudiantesByGenero(@RequestParam @Validated String genero){
+    @GetMapping("/estudiantes/genero/{genero}")
+    public Iterable<EstudianteDTO> getEstudiantesByGenero(@PathVariable String genero){
         return estudianteService.getEstudiantePorGenero(genero);
     }
 
@@ -44,9 +42,9 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties
-    @GetMapping("/byIdCarrera")
-    public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(@RequestParam @Validated int id){
-        return estudianteService.getEstudiantesPorIdCarrera(id);
+    @GetMapping("/estudiantes/carrera/{idCarrera}")
+    public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(@PathVariable int idCarrera){
+        return estudianteService.getEstudiantesPorIdCarrera(idCarrera);
     }
 
     @JsonIgnoreProperties

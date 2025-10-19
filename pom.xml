@@ -48,6 +48,14 @@
             <artifactId>lombok</artifactId>
             <version>1.18.42</version>
         </dependency>
+
+        <!-- Lector de archivos CSV -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.14.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
