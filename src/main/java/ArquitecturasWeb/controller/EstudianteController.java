@@ -45,8 +45,8 @@ public class EstudianteController {
 
     @JsonIgnoreProperties
     @GetMapping("/byIdCarrera")
-    public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(@RequestParam @Validated int id){
-        return estudianteService.getEstudiantesPorIdCarrera(id);
+    public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(@RequestParam @Validated int id, String ciudad){
+        return estudianteService.getEstudiantesPorIdCarrera(id, ciudad);
     }
 
     @JsonIgnoreProperties

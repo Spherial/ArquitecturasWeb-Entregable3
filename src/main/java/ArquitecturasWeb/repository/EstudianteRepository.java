@@ -12,18 +12,18 @@ import java.util.List;
 @Repository
 public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
 
-    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.dni, e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e ORDER BY e.apellido ASC")//TODO DSP CHEKEAMOS EL DTO QUE DEVOLVEMOS O LA CONSULTA
+    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e ORDER BY e.apellido ASC")//TODO DSP CHEKEAMOS EL DTO QUE DEVOLVEMOS O LA CONSULTA
     List<EstudianteDTO> getAllEstudiantesOrderByApellidoAsc();
 
-    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.dni, e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e WHERE e.LU = :LU ") //TODO chequear
+    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e WHERE e.LU = :LU ") //TODO chequear
     EstudianteDTO getEstudianteByLU(@Param("LU") int LU);
 
-    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.dni, e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e WHERE e.genero = :genero")
+    @Query("SELECT new ArquitecturasWeb.dto.EstudianteDTO(e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) FROM Estudiante e WHERE e.genero = :genero")
     List<EstudianteDTO> getEstudiantesByGenero(@Param("genero") String genero);
 
     @Query("""
     SELECT new ArquitecturasWeb.dto.EstudianteDTO(
-        e.dni, e.nombre, e.apellido, e.edad, e.genero, e.ciudad, e.LU
+        e.nombre, e.apellido, e.edad, e.genero, e.ciudad, e.LU
     )
     FROM Estudiante e
     WHERE (:nombre IS NULL OR e.nombre LIKE %:nombre%)
@@ -44,7 +44,7 @@ public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
     );
 
 
-    @Query("select new ArquitecturasWeb.dto.EstudianteDTO(e.dni, e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) from Estudiante e join e.carreras ec where ec.id = :id")
-    List<EstudianteDTO>getEstudiantesPorIdCarrera(@Param("id")int id);
+    @Query("select new ArquitecturasWeb.dto.EstudianteDTO(e.nombre,e.apellido,e.edad,e.genero,e.ciudad,e.LU) from Estudiante e join e.carreras ec where ec.id = :id and e.ciudad = :ciudad")
+    List<EstudianteDTO>getEstudiantesPorIdCarrera(@Param("id")int id, @Param("ciudad") String ciudad);
 
 }
