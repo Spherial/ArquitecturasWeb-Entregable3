@@ -14,15 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class CarreraController {
 
-    @Autowired
-    private CarreraService carreraService;
-
-
-
-    @GetMapping("/carreras")
-    public Iterable<Carrera> getCarreras(){
-        return carreraService.getAll();
-    }
+    private final CarreraService carreraService;
 
     @GetMapping("/inscriptos")
     public Iterable<CarreraDTO> getCarrerasConInscriptos(){

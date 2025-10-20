@@ -36,8 +36,14 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties
-    @GetMapping("/buscarPorCampos")
-    public Iterable<EstudianteDTO>buscarEstudiantesPorCampos(@RequestParam @Validated String nombre,String apellido,int edad, String genero,String ciudad, int LU ){
+    @GetMapping("/estudiantes/buscarPorCampos")
+    public Iterable<EstudianteDTO>buscarEstudiantesPorCampos(
+             @RequestParam(required = false) String nombre,
+             @RequestParam(required = false) String apellido,
+             @RequestParam(required = false) Integer edad,
+             @RequestParam(required = false) String genero,
+             @RequestParam(required = false) String ciudad,
+             @RequestParam(required = false) Integer LU){
         return estudianteService.buscarEstudiantesPorCampos(nombre, apellido, edad, genero, ciudad,LU);
     }
 
@@ -48,8 +54,8 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties
-    @PostMapping("/agregar")
-    public void insertEstudiante(@RequestBody @Validated Estudiante nuevoEstudiante){//TODO: no deberian ser dtos?
+    @PostMapping("/estudiantes")
+    public void insertEstudiante(@RequestBody @Validated Estudiante nuevoEstudiante){
         estudianteService.insertEstudiante(nuevoEstudiante);
     }
 

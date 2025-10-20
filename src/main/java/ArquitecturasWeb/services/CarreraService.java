@@ -16,11 +16,6 @@ public class CarreraService {
 
     private final CarreraRepository carreraRepository;
 
-
-    public List<Carrera> getAll(){
-        return carreraRepository.findAll();
-    }
-
     @Transactional
     public void insert(Carrera nuevaCarrera){
         carreraRepository.save(nuevaCarrera);
