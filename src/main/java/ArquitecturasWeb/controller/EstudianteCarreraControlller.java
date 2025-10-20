@@ -5,6 +5,7 @@ import ArquitecturasWeb.entities.Carrera;
 import ArquitecturasWeb.entities.Estudiante;
 import ArquitecturasWeb.repository.EstudianteCarreraRepository;
 import ArquitecturasWeb.services.EstudianteCarreraService;
+import ArquitecturasWeb.utils.MatriculaRequest;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
@@ -24,8 +25,13 @@ public class EstudianteCarreraControlller {
     }
 
     @JsonIgnoreProperties
-    @PostMapping("/agregar")
-    public void matricular(@RequestBody @Validated Estudiante estudiante, Carrera carrera, int inscripcion, int graduacion, int antiguedad){
-        estudianteCarreraService.matricular(estudiante, carrera, inscripcion, graduacion, antiguedad);
+    @PostMapping("/matricular")
+    public void matricular(@RequestBody MatriculaRequest request){
+        estudianteCarreraService.matricular(
+                request.getEstudiante(),
+                request.getCarrera(),
+                request.getInscripcion(),
+                request.getGraduacion(),
+                request.getAntiguedad());
     }
 }
