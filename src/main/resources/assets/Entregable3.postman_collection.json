@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "5f64023b-614c-470e-8038-0595525a736f",
+		"name": "Entregable3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "49414536",
+		"_collection_link": "https://victoriacepeda04-5017421.postman.co/workspace/victoriacepeda04's-Workspace~7306a2fe-351a-42aa-8807-c2db859d5167/collection/49414536-5f64023b-614c-470e-8038-0595525a736f?action=share&source=collection_link&creator=49414536"
+	},
+	"item": [
+		{
+			"name": "getEstudiantesPorLU",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/28886",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"28886"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEstudiantes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEstudiantesPorGenero",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/genero/Female",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"genero",
+						"Female"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEstudiantesDeCarreraPorCiudad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/2/Idvor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"2",
+						"Idvor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEstudiantesPorCampos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/estudiantes/buscarPorCampos?edad=32&apellido=Pepys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes",
+						"buscarPorCampos"
+					],
+					"query": [
+						{
+							"key": "edad",
+							"value": "32"
+						},
+						{
+							"key": "apellido",
+							"value": "Pepys"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertarEstudiante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dni\": \"12345678\",\r\n  \"nombre\": \"María\",\r\n  \"apellido\": \"López\",\r\n  \"edad\": 21,\r\n  \"genero\": \"Female\",\r\n  \"ciudad\": \"Rosario\",\r\n  \"lu\": 10025\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/estudiantes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"estudiantes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarrerasPorIncriptos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/inscriptos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"inscriptos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "insertarCarrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 1234567,\r\n    \"nombre\": \"Apicultura\",\r\n    \"duracion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/carreras",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"carreras"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getReportes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/reportes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"reportes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "matricularEstudianteEnCarrera",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"estudiante\": { \"dni\": 71779527 },\r\n  \"carrera\": { \"id\": 1 },\r\n  \"inscripcion\": 2022,\r\n  \"graduacion\": 0,\r\n  \"antiguedad\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/matricular",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"matricular"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
