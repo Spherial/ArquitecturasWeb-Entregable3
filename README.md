@@ -30,7 +30,7 @@ http://localhost:8080/estudiantes/28886
 Devuelve todos los estudiantes de un género en específico.
 
 **Path parameters**
-* **género**: Male o Female
+* **género**: Male o Female, Polygender, Agender ...
 
 **return**: List&lt;EstudianteDTO&gt;
 
@@ -38,17 +38,18 @@ Devuelve todos los estudiantes de un género en específico.
 http://localhost:8080/estudiantes/genero/Female
 ```
 
-### GET **`http://localhost:8080/estudiantes/carrera/{idCarrera}`**
+### GET **`http://localhost:8080/estudiantes/carrera`**
 
-Devuelve todos los estudiantes de una carrera determinada.
+Devuelve todos los estudiantes de una carrera determinada filtrados por ciudad de residencia.
 
-**Path parameters**
+**Query parameters**
 * **idCarrera**: id de la carrera de interés.
+* **ciudad**: nombre de la ciudad.
 
 **return**: List&lt;EstudianteDTO&gt;
 
 ```
-http://localhost:8080/estudiantes/carrera/1
+http://localhost:8080/estudiantes/carrera?id=2&ciudad=Idvor
 ```
 
 ### GET **`http://localhost:8080/estudiantes/buscarPorCampos`**

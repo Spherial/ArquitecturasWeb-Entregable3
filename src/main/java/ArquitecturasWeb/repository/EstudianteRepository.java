@@ -43,24 +43,26 @@ public interface EstudianteRepository extends JpaRepository<Estudiante,Long> {
             @Param("LU") Integer LU
     );
 
-
     @Query("""
-    select new ArquitecturasWeb.dto.EstudianteDTO(
-        e.dni,
-        e.nombre,
-        e.apellido,
-        e.edad,
-        e.genero,
-        e.ciudad,
-        e.LU
-    )
-    from Estudiante e
-    where e in (
-        select ec.estudiante
-        from EstudianteCarrera ec
-        where ec.carrera.id = :id
-    )
+        SELECT NEW ArquitecturasWeb.dto.EstudianteDTO(
+            e.nombre,
+            e.apellido,
+            e.edad,
+            e.genero,
+            e.ciudad,
+            e.LU
+        )
+        FROM Estudiante e
+        WHERE e IN (
+            SELECT ec.estudiante
+            FROM EstudianteCarrera ec
+            WHERE ec.carrera.id = :id
+        )
+        AND e.ciudad = :ciudad
     """)
-    List<EstudianteDTO>getEstudiantesPorIdCarrera(@Param("id")int id);
+    List<EstudianteDTO> getEstudiantesPorIdCarrera(
+            @Param("id") int id,
+            @Param("ciudad") String ciudad
+    );
 
 }
