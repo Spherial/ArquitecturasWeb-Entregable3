@@ -1,16 +1,16 @@
-package ArquitecturasWeb.utils;
+package ArquitecturasWeb.dto.request;
 
 import ArquitecturasWeb.entities.Carrera;
 import ArquitecturasWeb.entities.Estudiante;
 
-public class MatriculaRequest {
+public class MatriculaRequestDTO {
     private Estudiante estudiante;
     private Carrera carrera;
     private int inscripcion;
     private int graduacion;
     private int antiguedad;
 
-    public MatriculaRequest(Estudiante estudiante, int antiguedad, int graduacion, int inscripcion, Carrera carrera) {
+    public MatriculaRequestDTO(Estudiante estudiante, int antiguedad, int graduacion, int inscripcion, Carrera carrera) {
         this.estudiante = estudiante;
         this.antiguedad = antiguedad;
         this.graduacion = graduacion;

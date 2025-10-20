@@ -1,14 +1,10 @@
 package ArquitecturasWeb.controller;
 
 import ArquitecturasWeb.dto.ReporteDTO;
-import ArquitecturasWeb.entities.Carrera;
-import ArquitecturasWeb.entities.Estudiante;
-import ArquitecturasWeb.repository.EstudianteCarreraRepository;
 import ArquitecturasWeb.services.EstudianteCarreraService;
-import ArquitecturasWeb.utils.MatriculaRequest;
+import ArquitecturasWeb.dto.request.MatriculaRequestDTO;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.RequiredArgsConstructor;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -26,7 +22,7 @@ public class EstudianteCarreraControlller {
 
     @JsonIgnoreProperties
     @PostMapping("/matricular")
-    public void matricular(@RequestBody MatriculaRequest request){
+    public void matricular(@RequestBody MatriculaRequestDTO request){
         estudianteCarreraService.matricular(
                 request.getEstudiante(),
                 request.getCarrera(),

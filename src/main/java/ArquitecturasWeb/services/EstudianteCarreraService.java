@@ -6,6 +6,7 @@ import ArquitecturasWeb.entities.Estudiante;
 import ArquitecturasWeb.entities.EstudianteCarrera;
 import ArquitecturasWeb.repository.EstudianteCarreraRepository;
 import ArquitecturasWeb.repository.EstudianteRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class EstudianteCarreraService {
 
     private final EstudianteCarreraRepository estudianteCarreraRepository;
 
+    @Transactional
     public void matricular(Estudiante estudiante, Carrera carrera, int inscripcion, int graduacion, int antiguedad){
         EstudianteCarrera ec = new EstudianteCarrera(estudiante, carrera, inscripcion,graduacion,antiguedad);
         estudianteCarreraRepository.save(ec);

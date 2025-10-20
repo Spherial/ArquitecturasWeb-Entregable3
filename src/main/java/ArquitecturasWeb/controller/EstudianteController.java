@@ -48,10 +48,10 @@ public class EstudianteController {
     }
 
     @JsonIgnoreProperties
-    @GetMapping("/estudiantes/carrera")
+    @GetMapping("/estudiantes/{id}/{ciudad}")
     public Iterable<EstudianteDTO>getEstudiantesPorIdCarrera(
-            @RequestParam @Validated int id,
-            @RequestParam String ciudad){
+            @PathVariable @Validated int id,
+            @PathVariable String ciudad){
         return estudianteService.getEstudiantesPorIdCarrera(id, ciudad);
     }
 

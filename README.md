@@ -42,14 +42,14 @@ http://localhost:8080/estudiantes/genero/Female
 
 Devuelve todos los estudiantes de una carrera determinada filtrados por ciudad de residencia.
 
-**Query parameters**
+**Path parameters**
 * **idCarrera**: id de la carrera de interés.
 * **ciudad**: nombre de la ciudad.
 
 **return**: List&lt;EstudianteDTO&gt;
 
 ```
-http://localhost:8080/estudiantes/carrera?id=2&ciudad=Idvor
+http://localhost:8080/estudiantes/2/Idvor
 ```
 
 ### GET **`http://localhost:8080/estudiantes/buscarPorCampos`**
