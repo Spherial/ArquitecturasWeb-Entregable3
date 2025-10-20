@@ -14,7 +14,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EstudianteService {
 
-    @Autowired
     private final EstudianteRepository estudianteRepository;
 
 
@@ -42,8 +41,8 @@ public class EstudianteService {
     }
 
     @Transactional
-    public List<EstudianteDTO> getEstudiantesPorIdCarrera(int id){
-        return estudianteRepository.getEstudiantesPorIdCarrera(id);
+    public List<EstudianteDTO> getEstudiantesPorIdCarrera(int id, String ciudad){
+        return estudianteRepository.getEstudiantesPorIdCarrera(id, ciudad);
     }
 
 
