@@ -38,7 +38,7 @@ Devuelve todos los estudiantes de un género en específico.
 http://localhost:8080/estudiantes/genero/Female
 ```
 
-### GET **`http://localhost:8080/estudiantes/carrera`**
+### GET **`http://localhost:8080/estudiantes/{idCarrera}/{ciudad}`**
 
 Devuelve todos los estudiantes de una carrera determinada filtrados por ciudad de residencia.
 
